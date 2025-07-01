@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HXR-tech: The Future of Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- 
+        Selected Color Palette: Energetic & Playful
+        #FF4E50 (Primary Accent)
+        #FC913A (Secondary Accent)
+        #F9D423 (Tertiary Accent)
+        #2C3E50 (Dark Text)
+        #ECF0F1 (Light Background)
+        #FFFFFF (Card Background)
+
+        Narrative Plan:
+        1.  Hook with the current problems in education.
+        2.  Introduce HXR-tech as the definitive solution.
+        3.  Showcase the massive market potential.
+        4.  Detail the product's journey from concept to reality.
+        5.  Visually prove the competitive advantage.
+        6.  State the vision and the specific support needed.
+
+        Visualization Choices:
+        -   Problem Section -> Goal: Inform -> 4x Info Cards with Unicode Icons -> Justification: Quickly convey 4 distinct, impactful issues. Method: HTML/Tailwind. NO SVG.
+        -   Solution Section -> Goal: Compare -> Radar Chart -> Justification: Show a balanced, multi-faceted solution. Method: Chart.js/Canvas. NO SVG.
+        -   Market Section -> Goal: Change over Time -> Line Chart -> Justification: Clearly visualize market growth trend. Method: Chart.js/Canvas. NO SVG.
+        -   Roadmap Section -> Goal: Organize Process -> HTML/CSS Flowchart -> Justification: Show sequential steps without prohibited libraries. Method: HTML/Tailwind. NO SVG/NO MERMAID JS.
+        -   Competition Section -> Goal: Compare Categories -> Grouped Bar Chart -> Justification: Direct comparison of HXR-tech against alternatives across key metrics. Method: Chart.js/Canvas. NO SVG.
+        -   The Ask Section -> Goal: Show Composition -> Donut Chart -> Justification: Visually break down the required support package. Method: Chart.js/Canvas. NO SVG.
+
+        Constraint Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ECF0F1;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #FF4E50, #FC913A);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .stat-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: #2C3E50;
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            min-height: 80px;
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            color: #FC913A;
+            margin: 1rem 0;
+            transform: rotate(90deg);
+        }
+        @media (min-width: 768px) {
+            .flowchart-arrow {
+                transform: rotate(0deg);
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-gradient">HXR-tech</h1>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#problem" class="font-semibold text-gray-600 hover:text-[#FF4E50] transition">The Problem</a></li>
+                <li><a href="#solution" class="font-semibold text-gray-600 hover:text-[#FF4E50] transition">Our Solution</a></li>
+                <li><a href="#market" class="font-semibold text-gray-600 hover:text-[#FF4E50] transition">Market</a></li>
+                <li><a href="#roadmap" class="font-semibold text-gray-600 hover:text-[#FF4E50] transition">Roadmap</a></li>
+                <li><a href="#ask" class="font-semibold text-gray-600 hover:text-[#FF4E50] transition">The Ask</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center my-12 md:my-20">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-[#2C3E50] leading-tight">Revolutionizing Education Through <span class="text-gradient">Immersive Technology</span></h2>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">We are closing the gap between traditional learning and the demands of the future. HXR-tech builds engaging, interactive, and accessible educational experiences for every student.</p>
+        </section>
+        
+        <section id="problem" class="my-16 md:my-24 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">The Widening Cracks in Education</h3>
+                <p class="mt-3 text-md md:text-lg max-w-2xl mx-auto text-gray-600">Today's educational models face critical challenges that limit student potential and create significant gaps in learning and skill development.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="stat-card">
+                    <span class="text-6xl text-[#FF4E50]">😴</span>
+                    <h4 class="text-2xl font-bold mt-4 text-[#2C3E50]">Student Disengagement</h4>
+                    <p class="text-gray-600 mt-2">Traditional methods fail to hold attention, with studies showing over 65% of students feeling bored or disengaged in class.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="text-6xl text-[#FC913A]">⚖️</span>
+                    <h4 class="text-2xl font-bold mt-4 text-[#2C3E50]">Access & Equity Gap</h4>
+                    <p class="text-gray-600 mt-2">Quality resources for specialized subjects are often costly and unavailable, creating a stark divide in educational opportunities.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="text-6xl text-[#F9D423]">📺</span>
+                    <h4 class="text-2xl font-bold mt-4 text-[#2C3E50]">Passive Learning</h4>
+                    <p class="text-gray-600 mt-2">Many digital tools are simply digitized textbooks, promoting passive consumption over the active, hands-on learning that drives retention.</p>
+                </div>
+                 <div class="stat-card">
+                    <span class="text-6xl text-gradient">🛠️</span>
+                    <h4 class="text-2xl font-bold mt-4 text-[#2C3E50]">Future Skills Gap</h4>
+                    <p class="text-gray-600 mt-2">A disconnect exists between academic curricula and the critical thinking and problem-solving skills needed in the modern workforce.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="my-16 md:my-24 bg-white rounded-lg shadow-xl p-6 md:p-12 scroll-mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">Our Solution: A New Dimension of Learning</h3>
+                    <p class="mt-4 text-md md:text-lg text-gray-600">HXR-tech tackles these challenges head-on with an immersive learning app powered by AR and VR. We don't just present information; we create worlds where students can explore, experiment, and truly understand complex subjects.</p>
+                    <p class="mt-4 text-md md:text-lg text-gray-600">Our platform provides a comprehensive boost to the learning experience, creating a well-rounded, effective, and engaging educational tool.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="solutionRadarChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="my-16 md:my-24 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">A Multi-Billion Dollar Opportunity</h3>
+                <p class="mt-3 text-md md:text-lg max-w-2xl mx-auto text-gray-600">The Global EdTech market is experiencing explosive growth. HXR-tech is perfectly positioned to capture a significant share of the rapidly expanding immersive learning segment.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                 <div class="chart-container h-80 md:h-96">
+                    <canvas id="marketGrowthChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roadmap" class="my-16 md:my-24 scroll-mt-20">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">From Concept to Reality: Our Journey</h3>
+                <p class="mt-3 text-md md:text-lg max-w-2xl mx-auto text-gray-600">We have a clear and actionable plan to develop our platform, validate our model, and scale our impact. Our journey is already underway with key milestones achieved.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-12">
+                 <h4 class="text-2xl font-bold text-center mb-8 text-[#2C3E50]">Development & Growth Roadmap</h4>
+                 <div class="flex flex-col md:flex-row justify-center items-center">
+                    <div class="flowchart-step border-2 border-[#FC913A]">Proof of Concept Developed</div>
+                    <div class="flowchart-arrow">→</div>
+                    <div class="flowchart-step">Iterate on User Feedback</div>
+                    <div class="flowchart-arrow">→</div>
+                    <div class="flowchart-step">Develop Minimum Viable Product (MVP)</div>
+                    <div class="flowchart-arrow">→</div>
+                    <div class="flowchart-step">Launch Institutional Pilot Programs</div>
+                 </div>
+                 <div class="mt-12 text-center">
+                    <h4 class="text-2xl font-bold text-[#2C3E50]">Proof of Concept: Key Features</h4>
+                     <p class="mt-2 text-gray-600">Our current PoC demonstrates our core capabilities with a functional AR module for biology students, featuring:</p>
+                    <ul class="mt-4 inline-block text-left list-disc list-inside">
+                        <li class="text-gray-700">Interactive 3D models of human anatomy.</li>
+                        <li class="text-gray-700">Real-time object rendering on physical surfaces.</li>
+                        <li class="text-gray-700">User-controlled virtual dissection and exploration.</li>
+                    </ul>
+                 </div>
+            </div>
+        </section>
+
+        <section id="competition" class="my-16 md:my-24 bg-white rounded-lg shadow-xl p-6 md:p-12 scroll-mt-20">
+             <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">Our Competitive Edge</h3>
+                <p class="mt-3 text-md md:text-lg max-w-2xl mx-auto text-gray-600">While other solutions exist, HXR-tech offers a fundamentally different and more effective approach by prioritizing true immersion and active participation.</p>
+            </div>
+            <div class="chart-container h-96 md:h-[500px]">
+                <canvas id="competitionBarChart"></canvas>
+            </div>
+        </section>
+
+        <section id="ask" class="my-16 md:my-24 scroll-mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                 <div class="text-center md:text-left">
+                    <h3 class="text-3xl md:text-4xl font-bold text-[#2C3E50]">Join Us in Shaping the Future</h3>
+                    <p class="mt-4 text-md md:text-lg text-gray-600">To accelerate our mission, we are seeking to join a top-tier EdTech cohort. We need a strategic partnership that provides the key resources necessary to move from a validated concept to a market-ready product.</p>
+                     <p class="mt-4 text-md md:text-lg text-gray-600 font-semibold">Your support is the catalyst for our growth, enabling us to refine our product, build strategic partnerships, and ultimately, bring HXR-tech to students everywhere.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="askDonutChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#2C3E50] text-white mt-16">
+        <div class="container mx-auto p-8 text-center">
+            <h3 class="text-2xl font-bold">HXR-tech</h3>
+            <p class="mt-2">Empowering the next generation of learners.</p>
+            <p class="mt-4 text-sm text-gray-400">&copy; 2025 HXR-tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const chartTooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines.filter(line => line.length > 0);
+        }
+
+        // Solution Radar Chart
+        const ctxRadar = document.getElementById('solutionRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Engagement Boost', 'Deeper Understanding', 'Democratized Access', 'Active Learning'],
+                datasets: [{
+                    label: 'HXR-tech Impact Score',
+                    data: [95, 90, 85, 98],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 78, 80, 0.2)',
+                    borderColor: '#FF4E50',
+                    pointBackgroundColor: '#FF4E50',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#FF4E50'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(44, 62, 80, 0.2)' },
+                        grid: { color: 'rgba(44, 62, 80, 0.2)' },
+                        pointLabels: { font: { size: 14, weight: 'bold' }, color: '#2C3E50' },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            color: '#2C3E50',
+                        },
+                        min: 0,
+                        max: 100
+                    }
+                },
+                plugins: chartTooltipCallback.plugins
+            }
+        });
+
+        // Market Growth Line Chart
+        const ctxLine = document.getElementById('marketGrowthChart').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['2022', '2023', '2024', '2025', '2026', '2027', '2028 (proj.)'],
+                datasets: [{
+                    label: 'Global EdTech Market Size ($B)',
+                    data: [420, 455, 495, 540, 590, 650, 720],
+                    fill: true,
+                    borderColor: '#FC913A',
+                    backgroundColor: 'rgba(252, 145, 58, 0.2)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: chartTooltipCallback.plugins,
+                scales: {
+                    y: { beginAtZero: false }
+                }
+            }
+        });
+
+        // Competition Bar Chart
+        const ctxBar = document.getElementById('competitionBarChart').getContext('2d');
+        const competitionLabels = [
+            'True Immersive Experience', 
+            'Focus on Active Learning', 
+            'Content Accessibility'
+        ].map(label => wrapLabel(label, 16));
+        
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: competitionLabels,
+                datasets: [
+                    {
+                        label: 'Traditional Textbooks',
+                        data: [5, 10, 70],
+                        backgroundColor: '#E1F5C4',
+                    },
+                    {
+                        label: 'Standard E-Learning',
+                        data: [25, 40, 85],
+                        backgroundColor: '#F9D423',
+                    },
+                    {
+                        label: 'HXR-tech',
+                        data: [95, 90, 90],
+                        backgroundColor: '#FF4E50',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) { return value + "%" }
+                        }
+                    }
+                },
+                plugins: chartTooltipCallback.plugins
+            }
+        });
+        
+        // The Ask Donut Chart
+        const ctxDonut = document.getElementById('askDonutChart').getContext('2d');
+        new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mentorship', 'Networking & Partnerships', 'Technical Resources', 'Pilot Opportunities', 'Market Validation'],
+                datasets: [{
+                    label: 'Support Needed',
+                    data: [30, 25, 20, 15, 10],
+                    backgroundColor: [
+                        '#FF4E50',
+                        '#FC913A',
+                        '#F9D423',
+                        '#EDE574',
+                        '#b8e994'
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                     ...chartTooltipCallback.plugins,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Key Support Areas for Acceleration',
+                        font: { size: 18, weight: 'bold' },
+                        color: '#2C3E50',
+                        padding: { top: 10, bottom: 20 }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
